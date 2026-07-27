@@ -6,9 +6,9 @@
 
 | Field            | Value                                |
 | ---------------- | ------------------------------------ |
-| Full Name        | Hazem [أكمل اسمك هنا]                |
-| Project Name     | AI CP Coach (Competitive Programming Coach) |
-| GitHub Username  | [اكتب اليوزر نيم بتاعك هنا]          |
+| Full Name        | Hazem Mohamed Farag                  |
+| Project Name     | AI Competitive Programming Coach     |
+| GitHub Username  | Hazem-M                              |
 | Challenge Batch  | June–July 2026                       |
 | Training Program | Large Language Models (LLMs) Program |
 | Organization     | [**Edrak for Ai**](https://edrak4ai.com/en)                         |
