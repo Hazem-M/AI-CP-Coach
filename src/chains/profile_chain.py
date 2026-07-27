@@ -10,11 +10,13 @@ class ProfileAnalysisChain:
         self.parser = CPOutputParsers.get_profile_analysis_parser()
         
         self.prompt = PromptTemplate(
-            template="""You are an expert Competitive Programming Coach.
+            template="""<|im_start|>system
+You are an expert Competitive Programming Coach.
 Analyze the following Codeforces user profile statistics.
 
 {format_instructions}
-
+<|im_end|>
+<|im_start|>user
 User Statistics (from Codeforces API):
 {user_stats}
 
@@ -22,17 +24,25 @@ Analyze their strengths and weaknesses. What should they focus on?
 Are they avoiding math? Are they weak at dynamic programming? 
 Provide an actionable training plan.
 Output strictly as JSON matching the format instructions.
+<|im_end|>
+<|im_start|>assistant
 """,
             input_variables=["user_stats"],
             partial_variables={"format_instructions": self.parser.get_format_instructions()}
         )
         
-        self.chain = self.prompt | self.llm | self.parser
+        self.chain = self.prompt | self.llm
 
     def run(self, user_stats: dict):
         """Analyze user profile."""
         stats_str = json.dumps(user_stats, indent=2)
-        return self.chain.invoke({"user_stats": stats_str})
+        raw_output = self.chain.invoke({"user_stats": stats_str})
+        
+        marker = "<|im_start|>assistant"
+        if marker in raw_output:
+            raw_output = raw_output.split(marker)[-1].strip()
+            
+        return self.parser.parse(raw_output)
 
 
 class RecommendationChain:
@@ -44,11 +54,13 @@ class RecommendationChain:
         self.parser = CPOutputParsers.get_recommendations_parser()
         
         self.prompt = PromptTemplate(
-            template="""You are an expert Competitive Programming Coach.
+            template="""<|im_start|>system
+You are an expert Competitive Programming Coach.
 Based on the user's weaknesses and current rating, recommend problems for them to solve.
 
 {format_instructions}
-
+<|im_end|>
+<|im_start|>user
 User's Current Rating: {current_rating}
 User's Weaknesses:
 {weaknesses}
@@ -58,12 +70,14 @@ Candidate Problems from Vector Store (if any):
 
 Filter the candidates and recommend a targeted practice set. Give a reason for each recommendation.
 Output strictly as JSON matching the format instructions.
+<|im_end|>
+<|im_start|>assistant
 """,
             input_variables=["current_rating", "weaknesses", "candidate_problems"],
             partial_variables={"format_instructions": self.parser.get_format_instructions()}
         )
         
-        self.chain = self.prompt | self.llm | self.parser
+        self.chain = self.prompt | self.llm
 
     def _get_candidates(self, weaknesses: list, rating: int) -> str:
         """Fetch candidates from vector store based on weak tags."""
@@ -89,8 +103,14 @@ Output strictly as JSON matching the format instructions.
         """Recommend problems."""
         weaknesses_str = json.dumps(weaknesses, indent=2)
         candidates = self._get_candidates(weaknesses, current_rating)
-        return self.chain.invoke({
+        raw_output = self.chain.invoke({
             "current_rating": current_rating,
             "weaknesses": weaknesses_str,
             "candidate_problems": candidates
         })
+        
+        marker = "<|im_start|>assistant"
+        if marker in raw_output:
+            raw_output = raw_output.split(marker)[-1].strip()
+            
+        return self.parser.parse(raw_output)
