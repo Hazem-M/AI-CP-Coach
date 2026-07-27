@@ -48,7 +48,8 @@ class CPCoachLLM:
             top_p=0.95,
             repetition_penalty=1.1,
             do_sample=True,
-            pad_token_id=self.tokenizer.eos_token_id
+            pad_token_id=self.tokenizer.eos_token_id,
+            return_full_text=False
         )
         
         # Wrap in LangChain's HuggingFacePipeline
