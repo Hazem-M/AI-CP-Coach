@@ -79,7 +79,26 @@ The project leverages a highly capable LLM (`Qwen2.5-Coder-7B-Instruct`) and Lan
 
 # 📸 Demo
 
-*(Add the amazing screenshots you took today of the working Analyze, Hints, and Review pages here!)*
+<div align="center">
+<img src="Demo/Screenshot%202026-07-28%20001854.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20001930.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002048.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002116.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002146.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002203.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002236.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002322.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002342.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002356.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002426.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002520.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002559.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002629.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002651.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002723.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002739.png" width="48%" />
+<img src="Demo/Screenshot%202026-07-28%20002755.png" width="48%" />
+</div>
 
 ---
 
