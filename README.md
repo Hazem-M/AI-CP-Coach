@@ -28,6 +28,8 @@ The project leverages a highly capable LLM (`Qwen2.5-Coder-7B-Instruct`) and Lan
 * **🧠 Problem Analysis:** Instantly breaks down competitive programming problems into core algorithmic ideas, time/space complexities, and edge cases.
 * **💡 Progressive Hints:** Stuck on a problem? The coach provides tiered hints (Nudge ➡️ Approach ➡️ Detailed ➡️ Solution) to guide your thinking process without immediately giving away the code.
 * **✅ AI Code Reviewer:** Submits user code against the problem statement for a comprehensive review. Identifies critical bugs, warns about TLE risks, provides optimization suggestions, and grades the solution out of 100.
+* **📊 Profile Analysis:** Analyzes your competitive programming strengths and weaknesses to provide a personalized evaluation.
+* **🎯 Custom Training Plan:** Generates tailored problem recommendations based on your current skill level and weak topics to help you level up.
 * **🤔 AI Thinking Process:** Transparently displays the AI's internal reasoning (`<think>` tags) before revealing the final answer.
 
 ---
@@ -71,6 +73,7 @@ The project leverages a highly capable LLM (`Qwen2.5-Coder-7B-Instruct`) and Lan
 2. **Analyze Page:** Paste a Codeforces/LeetCode problem statement and let the AI break it down for you.
 3. **Hints Page:** Paste a problem and click to reveal hints one by one as you try to solve it yourself.
 4. **Review Page:** Paste the problem along with your written C++, Python, or Java code. The AI will critique your solution and find potential bugs.
+5. **Profile & Train Pages:** Check your stats and get personalized problem recommendations.
 
 ---
 
@@ -91,7 +94,7 @@ The project leverages a highly capable LLM (`Qwen2.5-Coder-7B-Instruct`) and Lan
 # 🔮 Future Improvements
 
 * Integrate **RAG (Retrieval-Augmented Generation)** to fetch related Codeforces tutorials and similar problems directly from a vector database.
-* Connect to the official **Codeforces API** to fetch user profiles, track rating changes, and recommend tailored practice problems based on weaknesses.
+* Connect to the official **Codeforces API** to fetch user profiles, track rating changes, and recommend tailored practice problems based on weaknesses automatically.
 * Deploy the application live on a cloud platform like Hugging Face Spaces or AWS.
 
 ---
